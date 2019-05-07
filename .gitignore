@@ -1,0 +1,10 @@
+.vscode/
+__pycache__/
+cog_nba/__pycache__/
+*.pyc
+*.csv
+env/
+.flake8
+*.db
+cog_nba.egg-info/
+dist/
