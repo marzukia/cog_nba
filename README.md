@@ -22,7 +22,9 @@ The following command scan be used at this stage.
 
 `cog_nba.nba.get_all_players()`
 
-`cog_nba.nba.get_player_career_data(player_id)`
+`cog_nba.nba.get_player_career_stats(player_id, metric)`
+
+Metric can be 'Totals', 'PerGame', 'Per36'
 
 Alternatively, you can access any given endpoint by using:
 
