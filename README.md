@@ -16,7 +16,7 @@ pip install cog_nba
 
 # Available Commands
 
-The following command scan be used at this stage.
+The following commands can be used at this stage.
 
 `cog_nba.nba.get_current_players()`
 
@@ -29,3 +29,26 @@ Metric can be 'Totals', 'PerGame', 'Per36'
 Alternatively, you can access any given endpoint by using:
 
 `cog_nba.nba.get(endpoint, params)`
+
+# Example
+
+```
+from cog_nba import nba
+import pandas as pd
+
+current_players = nba.get_current_players()
+
+current_players = current_players['resultSets'][0]
+df = pd.DataFrame(
+    columns=current_players['headers'],
+    data=current_players['rowSet']
+)
+
+player = nba.get_player_career_stats(str(df.iloc[100]['PERSON_ID']), 'Totals')['resultSets']
+player = pd.DataFrame(
+    columns=player[0]['headers'],
+    data=player[0]['rowSet']
+)
+
+player.head()
+```
