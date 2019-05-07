@@ -1,12 +1,13 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Column, Integer, Text, DateTime
+from sqlalchemy import Column, Integer, Text, DateTime, create_engine
 
 from cog_nba.settings import ENGINE
 
 from datetime import datetime
 
 Base = declarative_base()
+engine = create_engine(ENGINE)
 
 
 class Query(Base):
@@ -24,7 +25,7 @@ class DBConnection(object):
         self.session = None
 
     def __enter__(self):
-        Session = sessionmaker(bind=ENGINE)
+        Session = sessionmaker(bind=engine)
         self.session = Session()
         return self
 
@@ -33,4 +34,4 @@ class DBConnection(object):
 
 
 def create_tables():
-    Base.metadata.create_all(ENGINE)
+    Base.metadata.create_all(engine)
