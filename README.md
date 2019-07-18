@@ -2,7 +2,7 @@
 
 This is a simple wrapper over the stats.nba.com API which caches requests made.
 
-Visit my [Personal Website](https://andryo.co) for other projects.
+[This project has been superceded by this one](https://github.com/marzukia/aionba)
 
 # Dependencies
 
